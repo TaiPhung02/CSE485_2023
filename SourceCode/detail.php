@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<?php include 'connectdb.php' ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
@@ -40,20 +41,30 @@
     </header>
     <main class="container mt-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
-       
+        <?php 
+        $mabviet = $_GET['mabviet'];
+        $sql = "SELECT *
+        FROM baiviet
+        INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
+        INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai
+        WHERE ma_bviet = '$mabviet'
+        ";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+    ?>
                 <div class="row mb-5">
                     <div class="col-sm-4">
-                        <img src="images/songs/cayvagio.jpg" class="img-fluid" alt="...">
+                        <img src="<?php    echo $row['hinhanh']      ?>" class="img-fluid" alt="...">
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none">Cây và gió</a>
+                            <a href="" class="text-decoration-none"><?php    echo $row['tieude']      ?></a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Cây và gió</p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trữ tình</p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nguyễn Văn Giả</p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php    echo $row['tieude']      ?></p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php    echo $row['ten_tloai']      ?></p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php    echo $row['tomtat']      ?></p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php    echo $row['noidung']      ?></p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php    echo $row['ten_tgia']      ?></p>
 
                     </div>          
         </div>
