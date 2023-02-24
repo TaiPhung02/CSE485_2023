@@ -47,8 +47,7 @@
         FROM baiviet
         INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
         INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai
-        WHERE ma_bviet = '$mabviet'
-        ";
+        WHERE ma_bviet = '$mabviet'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
     ?>
