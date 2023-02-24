@@ -1,3 +1,23 @@
+<?php
+    session_start();
+    ob_start();
+    include "./connectdb.php";
+    include "./admin/user.php";
+
+    if((isset($_POST['dangnhap']))&&($_POST['dangnhap'])) {
+        $user=$_POST['user'];
+        $pass=$_POST['pass'];
+        $role=checkUser($user,$pass);
+        $_SESSION['role']=$role;
+        if($role==1){
+            header('Location: ./admin/index.php');    
+        }
+        else {
+            $txt_erro="Username hoặc Password không hợp lệ!";
+        }
+
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,23 +72,28 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="username" >
+                                <input type="text" name="user" class="form-control" placeholder="username" >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" class="form-control" placeholder="password" >
+                                <input type="text" name="pass" class="form-control" placeholder="password" >
                             </div>
                             
                             <div class="row align-items-center remember">
                                 <input type="checkbox">Remember Me
                             </div>
                             <div class="form-group">
-                                <input type="submit" value="Login" class="btn float-end login_btn">
+                                <input type="submit" name="dangnhap" value="Login" class="btn float-end login_btn">
                             </div>
+                            <?php
+                                if(isset($txt_erro)&&($txt_erro!="")) {
+                                    echo "".$txt_erro."";
+                                } 
+                            ?>
                         </form>
                     </div>
                     <div class="card-footer">
