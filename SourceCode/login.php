@@ -7,7 +7,6 @@
         $sql = "SELECT * FROM `users` WHERE tai_khoan='$user_name' AND mat_khau ='$user_pass';";
         $result=mysqli_query($conn,$sql);
         $row = mysqli_fetch_assoc($result);
-        var_dump($row);
         if($row) {
             $_SESSION['login'] = $row['quyen'];
             header('Location:./admin/index.php');
