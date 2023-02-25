@@ -1,3 +1,7 @@
+<?php 
+include '../connectdb.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +14,6 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-    <?php include "../connectdb.php"; ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
@@ -29,16 +32,16 @@
                         <a class="nav-link" href="../index.php">Trang ngoài</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="category.php">Thể loại</a>
+                        <a class="nav-link " href="category.php">Thể loại</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
+                        <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="user.php">Người dùng</a>
+                        <a class="nav-link active fw-bold" href="user.php">Người dùng</a>
                     </li>
                 </ul>
                 </div>
@@ -47,41 +50,35 @@
 
     </header>
     <main class="container mt-5 mb-5">
+
+    <?php     
+        $id = $_GET["id"];
+        $sql = "SELECT *
+        FROM tb_user
+        Where tb_user.ma_bviet = '$id'";
+        $result = mysqli_query($conn, $sql);
+        $row = mysqli_fetch_assoc($result);
+    ?>
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_user.php" class="btn btn-success">Thêm mới</a>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tên user</th>
-                            <th>Sửa</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $sql = "SELECT * FROM tb_user;
-                            INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
-                            INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai";
-                            $result = mysqli_query($conn, $sql);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                                <tr>
-                                    <th scope="row"><?php echo $row['id'] ?></th>
-                                    <td><?php echo $row['name'] ?></td>
-                                    <td>
-                                        <a href="edit_user.php?id_user=<?php echo $row['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href="process_delete_user.php?id_user=<?php echo $row['id'] ?>"><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <?php 
-                            } ?>
-                    </tbody>
-                </table>
+                <h3 class="text-center text-uppercase fw-bold">Sửa thông tin người dùng</h3>
+                <form action="process_edit_user.php" method="post">
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatId">Mã người dùng</span>
+                        <input type="text" class="form-control" name="txtid" readonly value="<?php  echo $row['id'] ?>">
+                    </div>
+
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên người dùng</span>
+                        <input type="text" class="form-control" name="txtuser" value = "<?php  echo $row['name'] ?>">
+                    </div>
+
+                    <div class="form-group  float-end ">
+                        <input type="submit" value="Lưu lại" class="btn btn-success">
+                        <a href="user.php" class="btn btn-warning ">Quay lại</a>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
