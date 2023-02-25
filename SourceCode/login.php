@@ -1,22 +1,5 @@
 <?php
-    session_start();
-    ob_start();
     include "./connectdb.php";
-    include "./admin/user.php";
-
-    if((isset($_POST['dangnhap']))&&($_POST['dangnhap'])) {
-        $user=$_POST['user'];
-        $pass=$_POST['pass'];
-        $role=checkUser($user,$pass);
-        $_SESSION['role']=$role;
-        if($role==1){
-            header('Location: ./admin/index.php');    
-        }
-        else {
-            $txt_erro="Username hoặc Password không hợp lệ!";
-        }
-
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
