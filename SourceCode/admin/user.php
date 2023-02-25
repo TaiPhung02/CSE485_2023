@@ -55,7 +55,7 @@ if(!$_SESSION['login']) {
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_user.php" class="btn btn-success">Thêm mới</a>
+                <a href="add_users.php" class="btn btn-success">Thêm mới</a>
                 <table class="table">
                     <thead>
                         <tr>
