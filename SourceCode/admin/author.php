@@ -70,7 +70,7 @@
                                     <th scope="row"><?php echo $row['ma_tgia'] ?></th>
                                     <td><?php echo $row['ten_tgia'] ?></td>
                                     <td>
-                                        <a href="edit_category.php?id=1"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="edit_author.php?matgia=<?php  echo $row['ma_tgia']  ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                     <td>
                                         <a href=""><i class="fa-solid fa-trash"></i></a>
