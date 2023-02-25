@@ -1,3 +1,9 @@
+<?php 
+include "../connectdb.php";
+if(!$_SESSION['login']) {
+    header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,6 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
-    <?php include "../connectdb.php"; ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">

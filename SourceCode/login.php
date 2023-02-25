@@ -1,6 +1,20 @@
 <?php
     include "./connectdb.php";
+
+    if($_POST){
+        $user_name = $_POST['user_name'];
+        $user_pass = $_POST['user_pass'];
+        $sql = "SELECT * FROM `users` WHERE tai_khoan='$user_name' AND mat_khau ='$user_pass';";
+        $result=mysqli_query($conn,$sql);
+        $row = mysqli_fetch_assoc($result);
+        if($row) {
+            $_SESSION['login'] = $row['quyen'];
+            header('Location:./admin/index.php');
+        }
+       }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,15 +69,15 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+                        <form action="login.php" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
-                                <input type="text" name="user" class="form-control" placeholder="username" >
+                                <input type="text" name="user_name" class="form-control" placeholder="username" >
                             </div>
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" name="pass" class="form-control" placeholder="password" >
+                                <input type="text" name="user_pass" class="form-control" placeholder="password" >
                             </div>
                             
                             <div class="row align-items-center remember">
@@ -72,11 +86,6 @@
                             <div class="form-group">
                                 <input type="submit" name="dangnhap" value="Login" class="btn float-end login_btn">
                             </div>
-                            <?php
-                                if(isset($txt_erro)&&($txt_erro!="")) {
-                                    echo "".$txt_erro."";
-                                } 
-                            ?>
                         </form>
                     </div>
                     <div class="card-footer">
