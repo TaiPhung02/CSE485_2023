@@ -1,3 +1,9 @@
+<?php 
+include "../connectdb.php"; 
+if(!$_SESSION['login']) {
+    header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

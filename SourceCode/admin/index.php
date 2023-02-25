@@ -1,3 +1,14 @@
+<?php 
+include '../connectdb.php';
+if(!$_SESSION['login']) {
+    header("Location:login.php");
+}
+if($_SESSION['login'] && $_SESSION['login']!='admin') {
+    header("Location:../index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
