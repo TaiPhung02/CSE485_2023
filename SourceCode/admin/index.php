@@ -6,6 +6,15 @@ if(!$_SESSION['login']) {
 if($_SESSION['login'] && $_SESSION['login']!='admin') {
     header("Location:../index.php");
 }
+    function getCount(string $table)
+        {
+            global $conn;
+            $sql = "SELECT COUNT(*) AS so_luong FROM " . $table;
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            return $row['so_luong'];
+        }
+
 ?>
 <!-- test -->
 
@@ -67,7 +76,7 @@ if($_SESSION['login'] && $_SESSION['login']!='admin') {
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                            <?= getCount('users')?>
                         </h5>
                     </div>
                 </div>
@@ -81,7 +90,7 @@ if($_SESSION['login'] && $_SESSION['login']!='admin') {
                         </h5>
 
                         <h5 class="h1 text-center">
-                            10
+                            <?= getCount('theloai')?>
                         </h5>
                     </div>
                 </div>
@@ -95,7 +104,7 @@ if($_SESSION['login'] && $_SESSION['login']!='admin') {
                         </h5>
 
                         <h5 class="h1 text-center">
-                            20
+                            <?= getCount('tacgia')?>
                         </h5>
                     </div>
                 </div>
@@ -109,7 +118,7 @@ if($_SESSION['login'] && $_SESSION['login']!='admin') {
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                            <?= getCount('baiviet')?>
                         </h5>
                     </div>
                 </div>
