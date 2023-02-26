@@ -55,10 +55,10 @@ if(!$_SESSION['login']) {
     <main class="container mt-5 mb-5">
 
     <?php     
-        $id = $_GET["id"];
+        $id = $_GET["id_user"];
         $sql = "SELECT *
-        FROM tb_user
-        Where tb_user.ma_bviet = '$id'";
+        FROM users
+        Where id_nguoidung = '$id'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
     ?>
@@ -69,12 +69,24 @@ if(!$_SESSION['login']) {
                 <form action="process_edit_user.php" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã người dùng</span>
-                        <input type="text" class="form-control" name="txtid" readonly value="<?php  echo $row['id'] ?>">
+                        <input type="text" class="form-control" name="txtid"  value="<?php  echo $row['id_nguoidung'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatId">Tên người dùng</span>
+                        <input type="text" class="form-control" name="txttennd"  value="<?php  echo $row['ten_nd'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span  style = "padding: 0px 35px 0px 35px" class="input-group-text" id="lblCatId">Tài khoản</span>
+                        <input type="text" class="form-control" name="txttaikhoan"  value="<?php  echo $row['tai_khoan'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span style = "padding: 0px 35px 0px 35px" class="input-group-text" id="lblCatId">Mật khẩu</span>
+                        <input type="text" class="form-control" name="txtmatkhau"  value="<?php  echo $row['mat_khau'] ?>">
                     </div>
 
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Tên người dùng</span>
-                        <input type="text" class="form-control" name="txtuser" value = "<?php  echo $row['name'] ?>">
+                        <span  style = "padding: 0px 45px 0px 45px" class="input-group-text" id="lblCatName">Quyền</span>
+                        <input type="text" class="form-control" name="txtquyen" value = "<?php  echo $row['quyen'] ?>">
                     </div>
 
                     <div class="form-group  float-end ">
