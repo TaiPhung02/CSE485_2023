@@ -70,23 +70,23 @@ if(!$_SESSION['login']) {
                         <input type="text" class="form-control" name="txtMaTheLoai" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Tóm tắt</span>
+                        <span style = "padding: 0px 25px 0px 25px" class="input-group-text" id="lblCatName">Tóm tắt</span>
                         <input type="text" class="form-control" name="txtTomTat" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Nội dung</span>
+                        <span  style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Nội dung</span>
                         <input type="text" class="form-control" name="txtNoiDung" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Mã tác giả</span>
+                        <span style = "padding: 0px 15px 0px 15px" class="input-group-text" id="lblCatName">Mã tác giả</span>
                         <input type="text" class="form-control" name="txtMaTacGia" >
                     </div>
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatName">Ngày viết</span>
+                        <span style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Ngày viết</span>
                         <input type="date" id="date-input" name="date-input">
                     </div>
                     <div class="input-group mt-3 mb-3">
-                    <span class="input-group-text" id="lblCatName">Hình ảnh</span>
+                    <span  style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Hình ảnh</span>
                          <input type="file" id="file-upload" name="file-upload">
                     </div>
 
