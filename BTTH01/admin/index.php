@@ -60,6 +60,12 @@ if($_SESSION['login'] && $_SESSION['login']!='admin') {
                         <a class="nav-link" href="user.php">Người dùng</a>
                     </li>
                 </ul>
+                <div style="
+                padding:10px;
+                border:1px solid black;
+                border-radius:50px;
+                "><a style="text-decoration:none;
+                color:black;" href="logout.php">Đăng xuất</a></div>
                 </div>
             </div>
         </nav>

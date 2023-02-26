@@ -46,6 +46,13 @@ if(!$_SESSION['login']) {
                         <a class="nav-link active fw-bold" href="user.php">Người dùng</a>
                     </li>
                 </ul>
+                <div style="
+                padding:10px;
+                border:1px solid black;
+                border-radius:50px;
+                "><a style="text-decoration:none;
+                color:black;" href="logout.php">Đăng xuất</a></div>
+                </div>
                 </div>
             </div>
         </nav>
