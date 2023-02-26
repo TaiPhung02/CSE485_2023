@@ -108,7 +108,7 @@ if(!$_SESSION['login']) {
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Ngày viết</span>
-                        <input type="date" id="date-input" name="date-input">
+                        <input type="datetime-local" id="date-input" name="date-input">
                     </div>
                     <div class="input-group mt-3 mb-3">
                     <span  style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Hình ảnh</span>
