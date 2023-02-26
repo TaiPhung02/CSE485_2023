@@ -40,10 +40,10 @@ if(!$_SESSION['login']) {
                         <a class="nav-link" href="author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
+                        <a class="nav-link" href="article.php">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="user.php">Người dùng</a>
+                        <a class="nav-link active fw-bold" href="user.php">Người dùng</a>
                     </li>
                 </ul>
                 </div>
@@ -60,27 +60,31 @@ if(!$_SESSION['login']) {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Tên user</th>
+                            <th>Tên</th>
+                            <th>Tài khoản</th>
+                            <th>Mật khẩu</th>
+                            <th>Quyền</th>
                             <th>Sửa</th>
                             <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $sql = "SELECT * FROM tb_user;
-                            INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
-                            INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai";
+                            $sql = "SELECT * FROM users";
                             $result = mysqli_query($conn, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
                         ?>
                                 <tr>
-                                    <th scope="row"><?php echo $row['id'] ?></th>
-                                    <td><?php echo $row['name'] ?></td>
+                                    <th scope="row"><?php echo $row['id_nguoidung'] ?></th>
+                                    <td><?php echo $row['ten_nd'] ?></td>
+                                    <td><?php echo $row['tai_khoan'] ?></td>
+                                    <td><?php echo $row['mat_khau'] ?></td>
+                                    <td><?php echo $row['quyen'] ?></td>
                                     <td>
-                                        <a href="edit_user.php?id_user=<?php echo $row['id'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="edit_user.php?id_user=<?php echo $row['id_nguoidung'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                     <td>
-                                        <a href="process_delete_user.php?id_user=<?php echo $row['id'] ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a href="process_delete_user.php?id_user=<?php echo $row['id_nguoidung'] ?>"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                 </tr>
                                 <?php 
