@@ -5,7 +5,7 @@
         
         $sql = "INSERT INTO `theloai`(`ten_tloai`) VALUES ('$tentloai')";
         $result = mysqli_query($conn,$sql);
-        header('Location: Category.php');
+        header('Location: category.php');
         
     }
 ?>

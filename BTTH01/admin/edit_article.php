@@ -70,18 +70,45 @@ if(!$_SESSION['login']) {
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài hát</h3>
                 <form action="process_edit_article.php" method="post">
                     <div class="input-group mt-3 mb-3">
-                        <span class="input-group-text" id="lblCatId">Mã bài hát</span>
-                        <input type="text" class="form-control" name="txtmabhat" readonly value="<?php  echo $row['ma_bviet'] ?>">
+                        <span class="input-group-text" id="lblCatId">Mã bài viết</span>
+                        <input type="text" class="form-control" name="txtMaBaiViet" readonly value="<?php  echo $row['ma_bviet'] ?>">
                     </div>
-
+                    <div   div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên tiêu đề</span>
+                        <input type="text" class="form-control" name="txtTenTieuDe" value="<?php  echo $row['tieude'] ?>">
+                    </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên bài hát</span>
-                        <input type="text" class="form-control" name="txttenbhat" value = "<?php  echo $row['ten_bhat'] ?>">
+                        <input type="text" class="form-control" name="txtTenBaiHat" value="<?php  echo $row['ten_bhat'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Mã thể loại</span>
+                        <input type="text" class="form-control" name="txtMaTheLoai" value="<?php  echo $row['ma_tloai'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tóm tắt</span>
+                        <input type="text" class="form-control" name="txtTomTat" value="<?php  echo $row['tomtat'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Nội dung</span>
+                        <input type="text" class="form-control" name="txtNoiDung" value="<?php  echo $row['noidung'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Mã tác giả</span>
+                        <input type="text" class="form-control" name="txtMaTacGia" value="<?php  echo $row['ma_tgia'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Ngày viết</span>
+                        <input type="date" id="date-input" name="date-input" value="<?php  echo $row['ngayviet'] ?>">
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                    <span class="input-group-text" id="lblCatName">Hình ảnh</span>
+                         <input type="file" id="file-upload" name="file-upload" value="<?php  echo $row['hinhanh'] ?>">
                     </div>
 
                     <div class="form-group  float-end ">
-                        <input type="submit" value="Lưu lại" class="btn btn-success">
-                        <a href="author.php" class="btn btn-warning ">Quay lại</a>
+                        <input type="submit" value="Thêm" class="btn btn-success">
+                        <a href="article.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
