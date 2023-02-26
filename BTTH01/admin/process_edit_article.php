@@ -11,8 +11,14 @@
         $ngayViet = $_POST['date-input'];
         $hinhAnh = $_POST['file-upload'];
 
+        $link = './images/songs/' . $_FILES['file-upload']['name'];
+        $temp = $_FILES['file-upload']['tmp_name'];
+        $path = '../images/songs/' . $_FILES['file-upload']['name'];
+        $moved = move_uploaded_file($temp, $path);
+
+
         $sql = "UPDATE `baiviet` SET `tieude` = '$tenTieuDe', `ten_bhat` = '$tenBaiHat', `ma_tloai` = '$maTheLoai' , `tomtat` = '$tomTat',
-                     `noidung` = '$noiDung' , `ma_tgia` = '$maTacGia' , `ngayviet` = '$ngayViet' , `hinhanh` = '$hinhAnh'
+                     `noidung` = '$noiDung' , `ma_tgia` = '$maTacGia' , `ngayviet` = '$ngayViet' , `hinhanh` = '$link$hinhAnh'
                 WHERE `ma_bviet` = '$mabviet' ";
         $result = mysqli_query($conn,$sql);
         header('Location:article.php');
