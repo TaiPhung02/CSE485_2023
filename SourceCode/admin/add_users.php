@@ -1,5 +1,5 @@
 <?php 
-include "../connectdb.php";
+include "../connectdb.php"; 
 if(!$_SESSION['login']) {
     header("Location:login.php");
 }
@@ -40,10 +40,10 @@ if(!$_SESSION['login']) {
                         <a class="nav-link" href="author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
+                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="user.php">Người dùng</a>
+                        <a class="nav-link" href="user.php">Người dùng</a>
                     </li>
                 </ul>
                 </div>
@@ -55,42 +55,31 @@ if(!$_SESSION['login']) {
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
-                <a href="add_users.php" class="btn btn-success">Thêm mới</a>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th>Tên</th>
-                            <th>Tài khoản</th>
-                            <th>Mật khẩu</th>
-                            <th>Quyền</th>
-                            <th>Sửa</th>
-                            <th>Xóa</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $sql = "SELECT * FROM users";
-                            $result = mysqli_query($conn, $sql);
-                            while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                                <tr>
-                                    <th scope="row"><?php echo $row['id_nguoidung'] ?></th>
-                                    <td><?php echo $row['ten_nd'] ?></td>
-                                    <td><?php echo $row['tai_khoan'] ?></td>
-                                    <td><?php echo $row['mat_khau'] ?></td>
-                                    <td><?php echo $row['quyen'] ?></td>
-                                    <td>
-                                        <a href="edit_user.php?id_user=<?php echo $row['id_nguoidung'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                    </td>
-                                    <td>
-                                        <a href="process_delete_user.php?id_user=<?php echo $row['id_nguoidung'] ?>"><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                </tr>
-                                <?php 
-                            } ?>
-                    </tbody>
-                </table>
+                <h3 class="text-center text-uppercase fw-bold">Thêm mới người dùng</h3>
+                <form action="process_add_users.php" method="post">
+                    <div class="input-group mt-3 mb-3">
+                        <span class="input-group-text" id="lblCatName">Tên người dùng</span>
+                        <input type="text" name="txt_tennd" class="form-control" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span style = "padding: 0px 35px 0px 35px"  class="input-group-text" id="lblCatName">Tài khoản</span>
+                        <input type="text" name="txt_taikhoan" class="form-control" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span  style = "padding: 0px 35px 0px 35px" class="input-group-text" id="lblCatName">Mật khẩu</span>
+                        <input type="text" name="txt_matkhau" class="form-control" >
+                    </div>
+                    <div class="input-group mt-3 mb-3">
+                        <span  style = "padding: 0px 45px 0px 45px" class="input-group-text" id="lblCatName">Vai trò</span>
+                        <input type="text" name="txt_quyen" class="form-control" >
+                    </div>
+                    
+
+                    <div class="form-group  float-end ">
+                        <input type="submit" value="Thêm" class="btn btn-success">
+                        <a href="users.php" class="btn btn-warning ">Quay lại</a>
+                    </div>
+                </form>
             </div>
         </div>
     </main>
