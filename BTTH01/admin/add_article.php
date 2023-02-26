@@ -67,7 +67,20 @@ if(!$_SESSION['login']) {
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Mã thể loại</span>
-                        <input type="text" class="form-control" name="txtMaTheLoai" >
+                        <select class="form-select" name="txtMaTheLoai" >
+                            <?php
+                            // Kết nối tới database
+                            $con = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
+                            // Lấy danh sách thể loại từ bảng theloai
+                            $sql = "SELECT * FROM theloai";
+                            $result = mysqli_query($con, $sql);
+                            // Hiển thị các tùy chọn thể loại trong dropdown list
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<option value="' . $row['ma_tloai'] . '" selected>' . $row['ten_tloai'] . '</option>';
+                            }
+                            ?>
+                        </select>
+
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 25px 0px 25px" class="input-group-text" id="lblCatName">Tóm tắt</span>
@@ -79,7 +92,19 @@ if(!$_SESSION['login']) {
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 15px 0px 15px" class="input-group-text" id="lblCatName">Mã tác giả</span>
-                        <input type="text" class="form-control" name="txtMaTacGia" >
+                        <select class="form-select" name="txtMaTacGia" >
+                            <?php
+                            // Kết nối tới database
+                            $con = mysqli_connect('localhost', 'root', '', 'btth01_cse485');
+                            // Lấy danh sách thể loại từ bảng theloai
+                            $sql = "SELECT * FROM tacgia";
+                            $result = mysqli_query($con, $sql);
+                            // Hiển thị các tùy chọn thể loại trong dropdown list
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                    echo '<option value="' . $row['ma_tgia'] . '" selected>' . $row['ten_tgia'] . '</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Ngày viết</span>

@@ -79,7 +79,7 @@ if(!$_SESSION['login']) {
                                     <td><?php echo $row['ten_bhat'] ?></td>
                                     <td><?php echo $row['ten_tgia'] ?></td>
                                     <td>
-                                        <a href="edit_article.php?ma_bviet=<?php echo $row['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="edit_article.php?mabviet=<?php echo $row['ma_bviet'] ?>"><i class="fa-solid fa-pen-to-square"></i></a>
                                     </td>
                                     <td>
                                         <a href="process_delete_article.php?mabviet=<?php echo $row['ma_bviet'] ?>"><i class="fa-solid fa-trash"></i></a>
