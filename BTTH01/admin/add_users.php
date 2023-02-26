@@ -40,10 +40,10 @@ if(!$_SESSION['login']) {
                         <a class="nav-link" href="author.php">Tác giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="article.php">Bài viết</a>
+                        <a class="nav-link " href="article.php">Bài viết</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="user.php">Người dùng</a>
+                        <a class="nav-link active fw-bold " href="user.php">Người dùng</a>
                     </li>
                 </ul>
                 </div>
@@ -77,7 +77,7 @@ if(!$_SESSION['login']) {
 
                     <div class="form-group  float-end ">
                         <input type="submit" value="Thêm" class="btn btn-success">
-                        <a href="users.php" class="btn btn-warning ">Quay lại</a>
+                        <a href="user.php" class="btn btn-warning ">Quay lại</a>
                     </div>
                 </form>
             </div>
