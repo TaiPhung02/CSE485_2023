@@ -46,6 +46,13 @@ if(!$_SESSION['login']) {
                         <a class="nav-link" href="user.php">Người dùng</a>
                     </li>
                 </ul>
+                <div style="
+                padding:10px;
+                border:1px solid black;
+                border-radius:50px;
+                "><a style="text-decoration:none;
+                color:black;" href="logout.php">Đăng xuất</a></div>
+                </div>
                 </div>
             </div>
         </nav>
@@ -56,7 +63,7 @@ if(!$_SESSION['login']) {
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới bài viết</h3>
-                <form action="process_add_article.php" method="post">
+                <form action="process_add_article.php"  enctype="multipart/form-data" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên tiêu đề</span>
                         <input type="text" class="form-control" name="txtTenTieuDe" >
@@ -108,7 +115,7 @@ if(!$_SESSION['login']) {
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Ngày viết</span>
-                        <input type="date" id="date-input" name="date-input">
+                        <input type="datetime-local" id="date-input" name="date-input">
                     </div>
                     <div class="input-group mt-3 mb-3">
                     <span  style = "padding: 0px 18px 0px 18px" class="input-group-text" id="lblCatName">Hình ảnh</span>

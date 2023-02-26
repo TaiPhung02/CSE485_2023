@@ -47,6 +47,13 @@ if(!$_SESSION['login']) {
                         <a class="nav-link" href="user.php">Người dùng</a>
                     </li>
                 </ul>
+                <div style="
+                padding:10px;
+                border:1px solid black;
+                border-radius:50px;
+                "><a style="text-decoration:none;
+                color:black;" href="logout.php">Đăng xuất</a></div>
+                </div>
                 </div>
             </div>
         </nav>
@@ -64,7 +71,7 @@ if(!$_SESSION['login']) {
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin bài hát</h3>
-                <form action="process_edit_article.php" method="post">
+                <form action="process_edit_article.php" enctype="multipart/form-data" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatId">Mã bài viết</span>
                         <input type="text" class="form-control" name="txtMaBaiViet" readonly value="<?php  echo $article['ma_bviet'] ?>">
@@ -133,7 +140,7 @@ if(!$_SESSION['login']) {
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Ngày viết</span>
-                        <input type="date" id="date-input" name="date-input" value="<?php  echo $article['ngayviet'] ?>">
+                        <input type="text" id="date-input" name="date-input" name="Y-m-d H:i:s" value="<?php  echo $article['ngayviet'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                     <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Hình ảnh</span>
