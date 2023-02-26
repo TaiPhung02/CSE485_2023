@@ -133,7 +133,7 @@ if(!$_SESSION['login']) {
                     </div>
                     <div class="input-group mt-3 mb-3">
                         <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Ngày viết</span>
-                        <input type="date" id="date-input" name="date-input" value="<?php  echo $article['ngayviet'] ?>">
+                        <input type="text" id="date-input" name="date-input" name="Y-m-d H:i:s" value="<?php  echo $article['ngayviet'] ?>">
                     </div>
                     <div class="input-group mt-3 mb-3">
                     <span style = "padding: 0px 20px 0px 20px" class="input-group-text" id="lblCatName">Hình ảnh</span>
