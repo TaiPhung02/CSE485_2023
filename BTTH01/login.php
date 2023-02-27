@@ -1,18 +1,4 @@
-<?php
-    include "./connectdb.php";
 
-    if($_POST){
-        $user_name = $_POST['user_name'];
-        $user_pass = $_POST['user_pass'];
-        $sql = "SELECT * FROM `users` WHERE tai_khoan='$user_name' AND mat_khau ='$user_pass';";
-        $result=mysqli_query($conn,$sql);
-        $row = mysqli_fetch_assoc($result);
-        if($row) {
-            $_SESSION['login'] = $row['quyen'];
-            header('Location:./admin/index.php');
-        }
-       }
-?>
 
 
 <!DOCTYPE html>
@@ -30,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
-                <div class="my-logo">
+                <div class="my-logo" style="max-width: 20%">
                     <a class="navbar-brand" href="#">
                         <img src="images/logo2.png" alt="" class="img-fluid">
                     </a>
@@ -69,6 +55,24 @@
                         </div>
                     </div>
                     <div class="card-body">
+                    <?php
+                        include "./connectdb.php";
+
+                        if($_POST){
+                            $user_name = $_POST['user_name'];
+                            $user_pass = $_POST['user_pass'];
+                            $sql = "SELECT * FROM `users` WHERE tai_khoan='$user_name' AND mat_khau ='$user_pass';";
+                            $result=mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($result);
+                            if($row) {
+                                $_SESSION['login'] = $row['quyen'];
+                                header('Location:./admin/index.php');
+                            }
+                            else {
+                                echo '<p style="color:red;">Tên đăng nhập hoặc mật khẩu sai!</p>';
+                            }
+                        }
+                    ?>
                         <form action="login.php" method="post">
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtUser"><i class="fas fa-user"></i></span>
@@ -77,7 +81,7 @@
 
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="txtPass"><i class="fas fa-key"></i></span>
-                                <input type="text" name="user_pass" class="form-control" placeholder="password" >
+                                <input type="password" name="user_pass" class="form-control" placeholder="password" >
                             </div>
                             
                             <div class="row align-items-center remember">
