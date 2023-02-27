@@ -68,8 +68,11 @@
                                 $_SESSION['login'] = $row['quyen'];
                                 header('Location:./admin/index.php');
                             }
-                            else {
-                                echo '<p style="color:red;">Tên đăng nhập hoặc mật khẩu sai!</p>';
+                            else if(($user_name || $user_pass) &&($user_name|| !$user_pass) &&(!$user_name || $user_pass)  && !$row){
+                                echo '<p style="color:white;">Tên đăng nhập hoặc mật khẩu sai!</p>';
+                            }
+                            if(!$user_name|| !$user_pass){
+                                    echo '<p style="color:white;">Hãy nhập tài khoản hoặc mật khẩu </p>';
                             }
                         }
                     ?>
