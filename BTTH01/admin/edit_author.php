@@ -1,8 +1,8 @@
 <?php 
-include '../connectdb.php';
-if(!$_SESSION['login']) {
-    header("Location:login.php");
-}
+    include '../connectdb.php';
+    if(!$_SESSION['login']) {
+        header("Location:login.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,36 +24,32 @@ if(!$_SESSION['login']) {
                     <a class="navbar-brand" href="#">Administration</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Trang ngoài</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="category.php">Thể loại</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active fw-bold" href="author.php">Tác giả</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="article.php">Bài viết</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="user.php">Người dùng</a>
-                    </li>
-                </ul>
-                <div style="
-                padding:10px;
-                border:1px solid black;
-                border-radius:50px;
-                "><a style="text-decoration:none;
-                color:black;" href="logout.php">Đăng xuất</a></div>
-                </div>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="./">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.php">Trang ngoài</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="category.php">Thể loại</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold" href="author.php">Tác giả</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="article.php">Bài viết</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="user.php">Người dùng</a>
+                        </li>
+                    </ul>
+                    <div style="padding:10px;border:1px solid black;border-radius:50px;">
+                        <a style="text-decoration:none;color:black;" href="logout.php">Đăng xuất</a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -68,7 +64,6 @@ if(!$_SESSION['login']) {
         Where ma_tgia = '$matgia'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-     
     ?>
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
