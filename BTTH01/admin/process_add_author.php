@@ -6,6 +6,5 @@
         $sql = "INSERT INTO `tacgia`(`ten_tgia`) VALUES ('$tentgia')";
         $result = mysqli_query($conn,$sql);
         header('Location: author.php');
-        
     }
 ?>

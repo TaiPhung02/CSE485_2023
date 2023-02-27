@@ -19,8 +19,5 @@
                 VALUES ('$tenTieuDe','$tenBaiHat','$maTheLoai','$tomTat','$noiDung','$maTacGia','$ngayviet','$link$hinhAnh')";
         $result = mysqli_query($conn,$sql);
         header('Location: article.php');
-        
-    }
-
-    
+    }    
 ?>

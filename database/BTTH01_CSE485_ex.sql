@@ -11,7 +11,9 @@ LEFT JOIN baiviet ON theloai.ma_tloai = baiviet.ma_tloai
 WHERE baiviet.ma_bviet IS NULL;
 
 /*d, Liệt kê các bài viết với các thông tin sau: mã bài viết, tên bài viết, tên bài hát, tên tác giả, tên thể loại, ngày viết*/
-SELECT ma_bviet, ten_bhat,ten_tgia,ten_tloai,ngayviet from tacgia,baiviet,theloai where theloai.ma_tloai=baiviet.ma_tloai and tacgia.ma_tgia = baiviet.ma_tgia;
+SELECT ma_bviet, ten_bhat,ten_tgia,ten_tloai,ngayviet 
+FROM tacgia,baiviet,theloai 
+WHERE theloai.ma_tloai=baiviet.ma_tloai AND tacgia.ma_tgia = baiviet.ma_tgia;
 
 /*e, tìm thể loại có số bài viết nhiều nhất*/
 SELECT theloai.ten_tloai 
@@ -23,9 +25,9 @@ LIMIT 2;
 
 
 /*f, liệt kê 2 tác giả có số bài viết nhiều nhất */
-SELECT p.ten_tgia, COUNT(*) ten_bhat
-FROM tacgia as p
-JOIN baiviet AS o ON p.ma_tgia =o.ma_tgia
-GROUP BY p.ten_tgia
-ORDER BY ten_bhat DESC
-LIMIT 2;
+SELECT tg.ten_tgia, COUNT(*) ten_bhat 
+FROM tacgia AS tg 
+JOIN baiviet AS bv ON tg.ma_tgia =bv.ma_tgia 
+GROUP BY tg.ten_tgia 
+ORDER BY ten_bhat 
+DESC LIMIT 2;
