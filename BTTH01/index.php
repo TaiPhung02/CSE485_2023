@@ -19,21 +19,21 @@
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="./login.php">Đăng nhập</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Tìm</button>
-                </form>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.php">Đăng nhập</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -46,13 +46,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="images/slideshow/slide01.jpg" class="d-block w-100" alt="...">
+                    <img src="images/slideshow/slide01.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="images/slideshow/slide02.jpg" class="d-block w-100" alt="...">
+                    <img src="images/slideshow/slide02.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="images/slideshow/slide03.jpg" class="d-block w-100" alt="...">
+                    <img src="images/slideshow/slide03.jpg" class="d-block w-100" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -63,7 +63,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-            </div>
+        </div>
     </header>
     
     <main class="container-fluid mt-3">
@@ -71,25 +71,26 @@
         <div class="row">
 
             <?php
-            $sql = "SELECT hinhanh,tieude,ma_bviet FROM baiviet";
-            $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result) > 0){
-                while($row = mysqli_fetch_assoc($result)){
+                $sql = "SELECT hinhanh,tieude,ma_bviet FROM baiviet";
+                $result = mysqli_query($conn, $sql);
+                if(mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){
             ?>
-                    <div class="col-sm-3">
-                <div class="card mb-2" style="width: 100%;">
-                    <img src="<?php echo $row['hinhanh'] ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">
-                            <a href="./detail.php?mabviet=<?php echo $row['ma_bviet'] ?>" class="text-decoration-none"><?php echo $row['tieude'] ?></a>
-                        </h5>
-                    </div>
-                </div>
-            </div>
+                        <div class="col-sm-3">
+                            <div class="card mb-2" style="width: 100%;">
+                                <img src="<?php echo $row['hinhanh'] ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">
+                                        <a href="./detail.php?mabviet=<?php echo $row['ma_bviet'] ?>" class="text-decoration-none"><?php echo $row['tieude'] ?></a>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
             <?php
+                    }
                 }
-            }
             ?>
+        </div>
     </main>
     <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
         <h4 class="text-center text-uppercase fw-bold">TLU's music garden</h4>

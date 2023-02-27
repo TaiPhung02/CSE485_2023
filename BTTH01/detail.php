@@ -19,21 +19,21 @@
                     </a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="./login.php">Đăng nhập</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Tìm</button>
-                </form>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="./">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.php">Đăng nhập</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Nội dung cần tìm" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Tìm</button>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -42,30 +42,29 @@
     <main class="container mt-5">
         <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <?php 
-        $mabviet = $_GET['mabviet'];
-        $sql = "SELECT *
-        FROM baiviet
-        INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
-        INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai
-        WHERE ma_bviet = '$mabviet'";
-        $result = mysqli_query($conn, $sql);
-        $row = mysqli_fetch_assoc($result);
-    ?>
-                <div class="row mb-5">
-                    <div class="col-sm-4">
-                        <img src="<?php    echo $row['hinhanh']      ?>" class="img-fluid" alt="...">
-                    </div>
-                    <div class="col-sm-8">
-                        <h5 class="card-title mb-2">
-                            <a href="" class="text-decoration-none"><?php    echo $row['tieude']      ?></a>
-                        </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php    echo $row['tieude']      ?></p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php    echo $row['ten_tloai']      ?></p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php    echo $row['tomtat']      ?></p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php    echo $row['noidung']      ?></p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php    echo $row['ten_tgia']      ?></p>
-
-                    </div>          
+            $mabviet = $_GET['mabviet'];
+            $sql = "SELECT *
+            FROM baiviet
+            INNER JOIN tacgia ON baiviet.ma_tgia = tacgia.ma_tgia
+            INNER JOIN theloai ON theloai.ma_tloai = baiviet.ma_tloai
+            WHERE ma_bviet = '$mabviet'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+        ?>
+        <div class="row mb-5">
+            <div class="col-sm-4">
+                <img src="<?php    echo $row['hinhanh']      ?>" class="img-fluid" alt="...">
+            </div>
+            <div class="col-sm-8">
+                <h5 class="card-title mb-2">
+                    <a href="" class="text-decoration-none"><?php    echo $row['tieude']      ?></a>
+                </h5>
+                <p class="card-text"><span class=" fw-bold">Bài hát: </span><?php   echo $row['tieude']     ?></p>
+                <p class="card-text"><span class=" fw-bold">Thể loại: </span><?php  echo $row['ten_tloai']  ?></p>
+                <p class="card-text"><span class=" fw-bold">Tóm tắt: </span><?php   echo $row['tomtat']     ?></p>
+                <p class="card-text"><span class=" fw-bold">Nội dung: </span><?php  echo $row['noidung']    ?></p>
+                <p class="card-text"><span class=" fw-bold">Tác giả: </span><?php   echo $row['ten_tgia']   ?></p>
+            </div>          
         </div>
     </main>
     <footer class="bg-white d-flex justify-content-center align-items-center border-top border-secondary  border-2" style="height:80px">
