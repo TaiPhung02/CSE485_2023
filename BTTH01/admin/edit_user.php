@@ -65,7 +65,6 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
     ?>
-        <!-- <h3 class="text-center text-uppercase mb-3 text-primary">CẢM NHẬN VỀ BÀI HÁT</h3> -->
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Sửa thông tin người dùng</h3>
